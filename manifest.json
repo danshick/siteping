@@ -1,0 +1,26 @@
+{
+	"name": "SitePing",
+	"version": "0.1",
+	"manifest_version" : 2,
+	"description": "Pings web pages to prevent login timeout.",
+	"background" : { "scripts" : ["background.js"] },
+	"page_action" :
+	{
+		"default_icon": "icons/pause.png",
+		"default_title" : "SitePing"
+	},
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": [
+        "lib/jquery-2.0.3.min.js",
+        "pingscript.js"
+      ]
+    }
+  ],
+  "permissions": [ "tabs", "http://*/*", "https://*/*" ],
+  "icons": {
+		"128": "icons/master.png"
+	}
+}
+
